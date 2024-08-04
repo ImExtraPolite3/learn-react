@@ -1,20 +1,21 @@
 import './App.css';
-import { v4 as uuid } from 'uuid';
 
-const todos = [
-  { task: 'mow the yard', id: uuid() },
-  { task: 'Work on Odin Projects', id: uuid() },
-  { task: 'feed the cat', id: uuid() },
-];
+function Button(props) {
+  const buttonStyle = {
+    color: props.color,
+    fontSize: props.fontSize + 'px',
+  };
+
+  return <button style={buttonStyle}>{props.text}</button>;
+}
 
 function App() {
   return (
-    <ul>
-      {todos.map((todo) => (
-        // here we are using the already generated id as the key.
-        <li key={todo.id}>{todo.task}</li>
-      ))}
-    </ul>
+    <div>
+      <Button text="Click Me!" color="blue" fontSize={12} />
+      <Button text="Don't Click Me!" color="red" fontSize={12} />
+      <Button text="Click Me!" color="blue" fontSize={20} />
+    </div>
   );
 }
 
